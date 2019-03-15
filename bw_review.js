@@ -5,8 +5,8 @@
    Tutorial 11
    Case Problem 1
 
-   Author: 
-   Date:   
+   Author: Anthony S,A Gradillas
+   Date:   3.14.19
    
    Filename: bw_review.js
 	
@@ -34,18 +34,32 @@
 
 */
 
+// A event handler was inserted to run the int function after the page has been loaded
+window.onload = init();
+
+// The purpose of the following function is to define the event listeners used in the page
+function init() {
+      // The stars variable stores an object collection of the reviewing stars, efrenced by the span#stars img selector
+      var stars = document.querySelectorAll("span#stars");
+
+      //
+      for (var i = 0; i < stars.length; i++) {
+            stars[i].style.cursor = "pointer";
+            stars[i].addEventListener("mouseenter", lightStars);
+      }
+      document.getElementById("comment").addEventListener("keyup", count);
+}
 
 
-  
 
 
-  
-  
-  
+
+
+
 /*=================================================================*/
 
 function countCharacters(textStr) {
-   var commentregx = /\s/g;
-   var chars = textStr.replace(commentregx, "");
-   return chars.length;
-}   
+      var commentregx = /\s/g;
+      var chars = textStr.replace(commentregx, "");
+      return chars.length;
+}
